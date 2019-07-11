@@ -24,7 +24,13 @@ describe('items routes', () => {
   it('can create an item with POST', () => {
     return request(app)
       .post('/api/v1/cars')
-      .send({ Name: 'ford torino', Horsepower: 140, Acceleration: '10.5', Origin: 'USA' })
+      .send(
+        { 
+          Name: 'ford torino', 
+          Horsepower: 140, 
+          Acceleration: '10.5', 
+          Origin: 'USA' 
+        })
       .then(res => {
         expect(res.body).toEqual({
           Name: 'ford torino', 
