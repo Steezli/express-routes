@@ -66,6 +66,22 @@ describe('items routes', () => {
         });
       });
   });
+  it('can delete an item by index', () => {
+    return request(app)
+      .delete('/api/v1/cars/0')
+      .then(res => {
+        //array
+        //object that was deleted
+        //count of deleted items
+        //{ succes: true }
+        expect(res.body).toEqual({
+          Name: 'ford apple', 
+          Horsepower: 40, 
+          Acceleration: '10.5', 
+          Origin: 'USA' 
+        })
+      });
+  });
 });
     
 // {
