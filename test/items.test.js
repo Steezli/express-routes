@@ -47,6 +47,25 @@ describe('items routes', () => {
         });
       });
   });
+  it('can update an item with PUT', () => {
+    const newCar = {
+      Name: 'ford apple', 
+      Horsepower: 40, 
+      Acceleration: '10.5', 
+      Origin: 'USA' 
+    };
+    return request(app)
+      .put('/api/v1/cars/0')
+      .send(newCar)
+      .then(res => {
+        expect(res.body).toEqual({
+          Name: 'ford apple', 
+          Horsepower: 40, 
+          Acceleration: '10.5', 
+          Origin: 'USA' 
+        });
+      });
+  });
 });
     
 // {
